@@ -22,11 +22,11 @@ public class UserAuth implements Serializable{
 	@Column(name="user_auth_id")
 	private int userAuthId;
 	
-	@Column(name="token")
+	@Column(name="auth_token")
 	private String token;
 	
-	@Column(name="user_id")
-	private int userId;
+	@Column(name="twentyat_user_id")
+	private String twentyAtUserId;
 	
 	public int getUserAuthId() {
 		return userAuthId;
@@ -40,10 +40,10 @@ public class UserAuth implements Serializable{
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public int getUserId() {
-		return userId;
+	public void setTwentyAtUserId(String twentyAtUserId) {
+		this.twentyAtUserId = twentyAtUserId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public String getTwentyAtUserId() {
+		return twentyAtUserId;
 	}
 }
