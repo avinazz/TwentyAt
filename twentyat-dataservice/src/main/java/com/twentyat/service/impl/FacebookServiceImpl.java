@@ -4,18 +4,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.testng.log4testng.Logger;
 
 import com.googlecode.janrain4j.api.engage.EngageFailureException;
 import com.googlecode.janrain4j.api.engage.EngageService;
 import com.googlecode.janrain4j.api.engage.ErrorResponeException;
 import com.googlecode.janrain4j.api.engage.response.UserDataResponse;
-import com.twentyat.exception.SifrProviderException;
+import com.twentyat.dao.GenericDao;
+import com.twentyat.dao.UserDao;
+import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.model.Address;
 import com.twentyat.model.TwentyAtUser;
 import com.twentyat.model.User;
+import com.twentyat.model.UserAuth;
 import com.twentyat.service.FacebookService;
 
 public class FacebookServiceImpl implements FacebookService {
+	
+	Logger log = Logger.getLogger(getClass());
 	
 	@Autowired
 	private EngageService engageService;
@@ -23,64 +29,62 @@ public class FacebookServiceImpl implements FacebookService {
 		this.engageService = engageService;
 	}
 	
+	@Autowired
+	private UserDao userDao;
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
+	@Autowired
+	private GenericDao<UserAuth, Integer> userAuthDao;
+	public void setUserAuthDao(GenericDao<UserAuth, Integer> userAuthDao) {
+		this.userAuthDao = userAuthDao;
+	}
+	
 	private String token;
 	
-	public void registerUser(TwentyAtUser user, String token){
-		System.out.println("TOKEN : "+token);
-		System.out.println("User name : "+user.getUserName());
+	public User addTwentyAtUser(User user, String token) throws TwentyAtProviderException{
+		User retriveUser = null;
+		try
+		{
+			retriveUser = userDao.getTwentyAtUserByEmail(user.getEmail());
+		}
+		catch(Exception e)
+		{
+			log.info(user.getEmail()+" is new user, go ahead and register it");
+		}
+		
+		if(null == retriveUser)
+		{
+			UserAuth auth = new UserAuth();
+			auth.setToken(token);
+			auth.setTwentyAtUserId(user.getTwentyAtUserId());
+				
+			log.info("Saving user auth : ");
+			auth = userAuthDao.save(auth);
+			log.info("Saved user auth : ");
+			user = userDao.saveUser(user);
+			log.info("Saved user : ");
+			return user;
+		}
+		
+		throw new TwentyAtProviderException(user.getEmail()+" is already registered");
+		
+	}
+	
+	@Override
+	public User getTwentyAtUserByUUID(String uuid) throws TwentyAtProviderException{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public void signout() throws TwentyAtProviderException{
+
 	}
 
-	public void signout() {
-
-	}
-
-	public User getUser(String token) throws SifrProviderException 
+	public User getUser(String token) throws TwentyAtProviderException 
 	{
-		System.out.println("TOKEN : "+token);
-		if(token!=null)
-		{
-			try 
-			{
-				
-				UserDataResponse response = engageService.authInfo(token);
-				
-				User user = new User();
-				
-				Address address = new Address();
-				address.setCountry(response.getProfile().getAddress().getCountry());
-				address.setLocality(response.getProfile().getAddress().getLocality());
-				String postalCode = response.getProfile().getAddress().getPostalCode();
-				if(null != postalCode)
-				{
-					address.setPostalCode(new Integer(postalCode));
-				}
-				address.setRegion(response.getProfile().getAddress().getRegion());
-				address.setStreetAddress(response.getProfile().getAddress().getStreetAddress());
-				
-				user.setAddress(address);
-				
-				user.setBrithDate(response.getProfile().getBirthday());
-				user.setDisplayName(response.getProfile().getDisplayName());
-				user.setFamilyName(response.getProfile().getName().getFamilyName());
-				user.setFormattedName(response.getProfile().getName().getFormatted());
-				user.setGender(response.getProfile().getGender());
-				user.setGivenName(response.getProfile().getName().getGivenName());
-				user.setHomePage(response.getProfile().getUrl());
-				user.setPrefferedUserName(response.getProfile().getPreferredUsername());
-				user.setProfilePhoto(response.getProfile().getPhoto());
-				user.setVerifiedEmail(response.getProfile().getVerifiedEmail());
-				
-				return user;
-				
-			} catch (EngageFailureException e) {
-				throw new SifrProviderException(e);
-			} catch (ErrorResponeException e) {
-				throw new SifrProviderException(e);
-			}
-		}
-		else
-		{
-			throw new SifrProviderException("token not found");
-		}
+		return null;
 	}
 }

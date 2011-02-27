@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.twentyat.dao.GenericDao;
-import com.twentyat.exception.SifrProviderException;
+import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.exception.TwentyAtException;
 import com.twentyat.model.User;
 import com.twentyat.model.UserAuth;
@@ -26,7 +26,7 @@ public class TwentyAtServiceImpl implements TwentyAtService {
 	}
 	
 	@Override
-	public String getToken(String id) throws SifrProviderException{
+	public String getToken(String id) throws TwentyAtProviderException{
 		try
 		{
 			UserAuth userAuth = userAuthDao.get(new Integer(id));
@@ -34,11 +34,11 @@ public class TwentyAtServiceImpl implements TwentyAtService {
 		}
 		catch(Exception e)
 		{
-			throw new SifrProviderException(e);
+			throw new TwentyAtProviderException(e);
 		}
 	}
 	
-	public User getUser(String id) throws SifrProviderException
+	public User getUser(String id) throws TwentyAtProviderException
 	{
 		try
 		{
@@ -46,7 +46,7 @@ public class TwentyAtServiceImpl implements TwentyAtService {
 		}
 		catch(Exception e)
 		{
-			throw new SifrProviderException(e);
+			throw new TwentyAtProviderException(e);
 		}
 	}
 }
