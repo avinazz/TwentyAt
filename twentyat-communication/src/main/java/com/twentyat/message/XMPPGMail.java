@@ -62,7 +62,7 @@ public class XMPPGMail implements MessageListener {
 		XMPPConnection.DEBUG_ENABLED = true;
 
 		// Enter your login information here
-		c.login("bipin.sutariya@gmail.com", "muni#%)%");
+		//c.login("bipin.sutariya@gmail.com", "muni#%)%");
 
 		c.displayBuddyList();
 
