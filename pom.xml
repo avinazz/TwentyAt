@@ -33,7 +33,7 @@
 	<modules>
 		<module>twentyat-dataservice</module>
 		<module>twentyat-web</module>
-		<module>twentyat-mail</module>		
+		<module>twentyat-communication</module>		
 	</modules>
 
 	<organization>
