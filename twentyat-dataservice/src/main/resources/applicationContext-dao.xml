@@ -10,7 +10,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.sifr.twentyat.model" />
+		<property name="packagesToScan" value="com.twentyat.model" />
 		<property name="hibernateProperties">
 			<value>
 				hibernate.connection.driver_class=com.mysql.jdbc.Driver
@@ -51,8 +51,7 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="userDao" class="com.twentyat.dao.hibernate.GenericDaoHibernate">
-		<constructor-arg value="com.twentyat.model.User"></constructor-arg>
+	<bean id="userDao" class="com.twentyat.dao.hibernate.UserDaoHibernate">		
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>
