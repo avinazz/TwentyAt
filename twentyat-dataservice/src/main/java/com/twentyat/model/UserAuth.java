@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Entity Class for user_auth
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 @Entity
 @Table(name="user_auth")
 public class UserAuth implements Serializable{

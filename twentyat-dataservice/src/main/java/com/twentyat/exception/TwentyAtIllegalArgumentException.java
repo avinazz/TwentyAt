@@ -1,5 +1,11 @@
 package com.twentyat.exception;
 
+/**
+ * Class is used for Illegal Exception
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 public class TwentyAtIllegalArgumentException extends Exception implements
 		TwentyAtException {
 	private String fieldName;

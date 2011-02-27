@@ -1,5 +1,11 @@
 package com.twentyat.exception;
 
+/**
+ * Exception Class for all other exception other then Illegal Exception 
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 public class TwentyAtProviderException extends Exception {
 	/**
 	 * 

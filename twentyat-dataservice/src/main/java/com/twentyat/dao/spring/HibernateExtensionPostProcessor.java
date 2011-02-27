@@ -20,15 +20,15 @@ import java.util.Properties;
  * <p>As an example consider the following Spring bean configuration:
  * 
  * <pre>
- * &lt;bean class=&quot;com.sifr.twentyat.dao.spring.HibernateExtensionPostProcessor&quot;&gt;
+ * &lt;bean class=&quot;com.twentyat.dao.spring.HibernateExtensionPostProcessor&quot;&gt;
  *     &lt;property name=&quot;mappingResources&quot;&gt;
  *         &lt;list&gt;
- *             &lt;value&gt;com/sifr/twentyat/model/Foo.hbm.xml&lt;/value&gt;
+ *             &lt;value&gt;com/twentyat/model/Foo.hbm.xml&lt;/value&gt;
  *         &lt;/list&gt;
  *     &lt;/property&gt;
  *     &lt;property name=&quot;annotatedClasses&quot;&gt;
  *         &lt;list&gt;
- *             &lt;value&gt;com.sifr.twentyat.model.Bar&lt;/value&gt;
+ *             &lt;value&gt;com.twentyat.model.Bar&lt;/value&gt;
  *         &lt;/list&gt;
  *     &lt;/property&gt;
  * &lt;/bean&gt;

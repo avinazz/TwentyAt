@@ -12,6 +12,11 @@ import org.testng.log4testng.Logger;
 
 import com.twentyat.service.TwentyAtService;
 
+/**
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 @ContextConfiguration(locations = { "classpath:applicationContext-test.xml" })
 public class TwentyAtServiceTest implements InitializingBean {
 

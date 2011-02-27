@@ -19,6 +19,11 @@ import com.twentyat.model.User;
 import com.twentyat.model.UserAuth;
 import com.twentyat.service.FacebookService;
 
+/**
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 public class FacebookServiceImpl implements FacebookService {
 	
 	Logger log = Logger.getLogger(getClass());
@@ -43,6 +48,10 @@ public class FacebookServiceImpl implements FacebookService {
 	
 	private String token;
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.twentyat.service.FacebookService#addTwentyAtUser(com.twentyat.model.User, java.lang.String)
+	 */
 	public User addTwentyAtUser(User user, String token) throws TwentyAtProviderException{
 		User retriveUser = null;
 		try
@@ -72,8 +81,12 @@ public class FacebookServiceImpl implements FacebookService {
 		
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.twentyat.service.FacebookService#getTwentyAtUserByID(java.lang.String)
+	 */
 	@Override
-	public User getTwentyAtUserByUUID(String uuid) throws TwentyAtProviderException{
+	public User getTwentyAtUserByID(String id) throws TwentyAtProviderException{
 		// TODO Auto-generated method stub
 		return null;
 	}

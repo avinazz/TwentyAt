@@ -5,9 +5,6 @@ import com.twentyat.model.User;
 
 /**
  * User DAO (Data Access Object) with common methods to CRUD POJOs.
- *
- * <p>Extend this interface if you want typesafe (no casting necessary) DAO's for your
- * domain objects.
  * 
  * @author Bipin Sutariya
  *

@@ -35,6 +35,18 @@ public class TwentyAtController
 		this.twentyAtService = twentyAtService;
 	}
 	
+	/**
+	 * Method to register new user 
+	 * Access this method by http://localhost:8080/twentyat-web/register/firstname/lastname/email/mobilephone/photourl/token
+	 * 
+	 * @param String firstname
+	 * @param String lastname
+	 * @param String email
+	 * @param String mobilephone
+	 * @param String photourl
+	 * @param String token
+	 * @return List of Object as JSON
+	 */
     @RequestMapping( value = "/register/{firstname}/{lastname}/{email}/{mobilephone}/{photourl}/{token}", method = RequestMethod.GET )
     @ResponseBody
     public List<Object> addTwentyAtUser(@PathVariable String firstname, @PathVariable String lastname, 

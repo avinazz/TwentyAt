@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
+ * Entity class for twentyst_user
  * 
  * @author Bipin Sutariya
  * 
