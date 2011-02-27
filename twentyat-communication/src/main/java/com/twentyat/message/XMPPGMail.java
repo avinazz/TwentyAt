@@ -1,4 +1,4 @@
-package com.twentyat.xmpp;
+package com.twentyat.message;
 
 import java.io.BufferedReader;
 import java.io.IOException;
