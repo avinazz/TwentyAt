@@ -9,9 +9,9 @@
 		<version>1.0.0.0</version>
 	</parent>
 	<groupId>com.twentyat</groupId>
-	<artifactId>twneyat-mail</artifactId>
+	<artifactId>twneyat-communication</artifactId>
 	<version>1.0.0.0</version>
-	<name>twentyat-mail</name>
+	<name>twentyat-communication</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
