@@ -8,19 +8,19 @@ public class Status implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int errorCode;
-	private String errorMessage;
-	public int getErrorCode() {
-		return errorCode;
+	private int code;
+	private String message;
+	public int getCode() {
+		return code;
 	}
-	public void setErrorCode(int errorCode) {
-		this.errorCode = errorCode;
+	public void setCode(int code) {
+		this.code = code;
 	}
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getMessage() {
+		return message;
 	}
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	
