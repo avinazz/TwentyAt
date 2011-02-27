@@ -14,6 +14,13 @@ import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
 
+/**
+ * This class is used for connecting to XMPP server and manage chat
+ * 
+ * 
+ * @author Bipin Sutariya
+ *
+ */
 public class XMPPGMail implements MessageListener {
 
 	XMPPConnection connection;
