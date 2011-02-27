@@ -1,6 +1,6 @@
 package com.twentyat.service;
 
-import com.twentyat.exception.SifrProviderException;
+import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.model.User;
 
 /**
@@ -17,7 +17,7 @@ public interface TwentyAtService {
 	 * @param id
 	 * @return token - String
 	 */
-	public String getToken(String id) throws SifrProviderException;
+	public String getToken(String id) throws TwentyAtProviderException;
 	
-	public User getUser(String id) throws SifrProviderException;
+	public User getUser(String id) throws TwentyAtProviderException;
 }

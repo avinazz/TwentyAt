@@ -1,6 +1,6 @@
 package com.twentyat.service;
 
-import com.twentyat.exception.SifrProviderException;
+import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.model.TwentyAtUser;
 import com.twentyat.model.User;
 
@@ -13,9 +13,11 @@ import com.twentyat.model.User;
 
 public interface FacebookService {
 
-	public void registerUser(TwentyAtUser user, String token);
+	public User addTwentyAtUser(User user, String token) throws TwentyAtProviderException;
 	
-	public void signout();
+	public User getTwentyAtUserByUUID(String uuid) throws TwentyAtProviderException;
 	
-	public User getUser(String token) throws SifrProviderException;
+	public void signout() throws TwentyAtProviderException;
+	
+	public User getUser(String token) throws TwentyAtProviderException;
 }
