@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+	<import resource="classpath:applicationContext-resources.xml" />
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.sifr.twentyat.model" />
+		<property name="hibernateProperties">
+			<value>
+				hibernate.connection.driver_class=com.mysql.jdbc.Driver
+				hibernate.connection.username = root
+				hibernate.connection.password =
+				hibernate.connection.url = jdbc:mysql://localhost/twentyat
+				hibernate.current_session_context_class = thread
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.query.substitutions=true 'Y', false 'N'
+				hibernate.cache.use_second_level_cache=false
+				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+				hibernate.show_sql = true       
+            </value>
+			<!-- Turn batching off for better error messages under PostgreSQL -->
+			<!-- hibernate.jdbc.batch_size=0 -->
+		</property>
+	</bean>
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative 
+		to JTA) -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- If you want to be able to do simple CRUD for new domain objects without 
+		having to cast, you don't have create a Dao interface and implementation 
+		for that domain object, you simply have to do the following. eg... 'fooDao' 
+		<bean id="fooDao" class="com.sifr.twentyat.dao.hibernate.GenericDaoHibernate"> 
+		<constructor-arg value="com.sifr.twentyat.model.Foo"/> <property name="sessionFactory" 
+		ref="sessionFactory"/> </bean> You will need to create a Dao interface and 
+		implementation for that domain object if you need more than simple CRUD to 
+		occur. (finders, bulk update/delete, etc.) -->
+
+	<!-- Add new DAOs here -->
+	<bean id="userAuthDao" class="com.twentyat.dao.hibernate.GenericDaoHibernate">
+		<constructor-arg value="com.twentyat.model.UserAuth"></constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="userDao" class="com.twentyat.dao.hibernate.GenericDaoHibernate">
+		<constructor-arg value="com.twentyat.model.User"></constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

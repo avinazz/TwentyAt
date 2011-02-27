@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Core TestNG Unit Tests" verbose="1">
+
+	<test name="user">
+		<parameter name="userid_get" value="1" />
+
+		<classes>
+			<class name="com.twentyat.service.impl.TwentyAtServiceTest" />
+		</classes>
+	</test>
+
+</suite>
