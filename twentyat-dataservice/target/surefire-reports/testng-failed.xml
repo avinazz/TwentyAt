@@ -1,0 +1,90 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Core TestNG Unit Tests]" parallel="false">
+  <parameter name="emailGet" value="mayuri2gmail.com"/>
+  <parameter name="lastNameAdd" value=""/>
+  <parameter name="isActiveGet" value="true"/>
+  <parameter name="twEmailGetByemail" value=""/>
+  <parameter name="twLastNameGetByemail" value=""/>
+  <parameter name="groupName_updateGroup" value=""/>
+  <parameter name="twEmailGet" value=""/>
+  <parameter name="isActive_GetUserByToken" value=""/>
+  <parameter name="twIsActiveGetByemail" value=""/>
+  <parameter name="tokenAdd" value=""/>
+  <parameter name="twLastNameGet" value=""/>
+  <parameter name="userIdGetToken" value=""/>
+  <parameter name="twFirstNameGet" value=""/>
+  <parameter name="firstNameGet" value="Mayuri"/>
+  <parameter name="isActiveAdd" value=""/>
+  <parameter name="userId_GetGroupByUserId" value=""/>
+  <parameter name="token_GetUserByToken" value=""/>
+  <parameter name="groupId_updateGroup" value=""/>
+  <parameter name="groupName_SaveGroup" value=""/>
+  <parameter name="lastName_GetUserByToken" value=""/>
+  <parameter name="twFirstNameGetByemail" value=""/>
+  <parameter name="twUserGetByemail" value=""/>
+  <parameter name="firstName_GetUserByToken" value=""/>
+  <parameter name="firstNameAdd" value=""/>
+  <parameter name="tokenGetToken" value=""/>
+  <parameter name="email_GetUserByToken" value=""/>
+  <parameter name="twIsActiveGet" value=""/>
+  <parameter name="groupIdGetGroup" value=""/>
+  <parameter name="userGet" value="twUser001"/>
+  <parameter name="twUserGet" value=""/>
+  <parameter name="emailAdd" value=""/>
+  <parameter name="lastNameGet" value="Ruparel"/>
+  <test name="user(failed)" preserve-order="false">
+    <parameter name="emailGet" value="mayuri2gmail.com"/>
+    <parameter name="lastNameAdd" value=""/>
+    <parameter name="twEmailGetByemail" value=""/>
+    <parameter name="isActiveGet" value="true"/>
+    <parameter name="groupName_updateGroup" value=""/>
+    <parameter name="twLastNameGetByemail" value=""/>
+    <parameter name="twEmailGet" value=""/>
+    <parameter name="twIsActiveGetByemail" value=""/>
+    <parameter name="isActive_GetUserByToken" value=""/>
+    <parameter name="tokenAdd" value=""/>
+    <parameter name="twLastNameGet" value=""/>
+    <parameter name="userIdGetToken" value=""/>
+    <parameter name="twFirstNameGet" value=""/>
+    <parameter name="firstNameGet" value="Mayuri"/>
+    <parameter name="isActiveAdd" value=""/>
+    <parameter name="userId_GetGroupByUserId" value=""/>
+    <parameter name="token_GetUserByToken" value=""/>
+    <parameter name="groupId_updateGroup" value=""/>
+    <parameter name="groupName_SaveGroup" value=""/>
+    <parameter name="lastName_GetUserByToken" value=""/>
+    <parameter name="twFirstNameGetByemail" value=""/>
+    <parameter name="twUserGetByemail" value=""/>
+    <parameter name="firstName_GetUserByToken" value=""/>
+    <parameter name="firstNameAdd" value=""/>
+    <parameter name="tokenGetToken" value=""/>
+    <parameter name="email_GetUserByToken" value=""/>
+    <parameter name="twIsActiveGet" value=""/>
+    <parameter name="groupIdGetGroup" value=""/>
+    <parameter name="userGet" value="twUser001"/>
+    <parameter name="twUserGet" value=""/>
+    <parameter name="emailAdd" value=""/>
+    <parameter name="lastNameGet" value="Ruparel"/>
+    <classes>
+      <class name="com.twentyat.service.impl.SocialNetworkServiceTest">
+        <methods>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+        </methods>
+      </class>
+      <class name="com.twentyat.service.impl.TwentyAtServiceTest">
+        <methods>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="testGetUser" invocation-numbers="0"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

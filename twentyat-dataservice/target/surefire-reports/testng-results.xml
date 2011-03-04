@@ -1,0 +1,179 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="Core TestNG Unit Tests" duration-ms="2671" started-at="2011-03-04T17:27:58Z" finished-at="2011-03-04T17:28:00Z">
+    <groups>
+      <group name="User GET">
+        <method signature="com.twentyat.service.impl.SocialNetworkServiceTest.testGetUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)" name="testGetUser" class="com.twentyat.service.impl.SocialNetworkServiceTest"/>
+        <method signature="com.twentyat.service.impl.TwentyAtServiceTest.testGetUser(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.String)" name="testGetUser" class="com.twentyat.service.impl.TwentyAtServiceTest"/>
+      </group>
+      <group name="User Add">
+        <method signature="com.twentyat.service.impl.TwentyAtServiceTest.testAddTwentyAtUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.String)" name="testAddTwentyAtUser" class="com.twentyat.service.impl.TwentyAtServiceTest"/>
+      </group>
+    </groups>
+    <test name="user" duration-ms="2671" started-at="2011-03-04T17:27:58Z" finished-at="2011-03-04T17:28:00Z">
+      <class name="com.twentyat.service.impl.TwentyAtServiceTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="2" started-at="2011-03-04T17:28:00Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2011-03-04T17:28:00Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="18" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.TwentyAtServiceTest.testAddTwentyAtUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testAddTwentyAtUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.String)" name="testAddTwentyAtUser" duration-ms="50" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[twUser003]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dummytoken]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Kalpesh]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bhimani]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[kalpesh@techingen.com]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)" name="springTestContextAfterTestMethod" is-config="true" duration-ms="57" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.TwentyAtServiceTest.testAddTwentyAtUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="12" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.TwentyAtServiceTest.testGetUser(java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetUser(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.String)" name="testGetUser" duration-ms="20" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[twUser001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Mayuri]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Ruparel]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[mayuri@gmail.com]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.TwentyAtServiceTest.testGetUser(java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+        </test-method>
+      </class>
+      <class name="com.twentyat.service.impl.SocialNetworkServiceTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()" name="springTestContextBeforeTestClass" is-config="true" duration-ms="7" started-at="2011-03-04T17:27:58Z" finished-at="2011-03-04T17:27:58Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="2351" started-at="2011-03-04T17:27:58Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2011-03-04T17:28:00Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="119" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.SocialNetworkServiceTest.testGetUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)" name="testGetUser" duration-ms="1" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)" name="springTestContextAfterTestMethod" is-config="true" duration-ms="13" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.twentyat.service.impl.SocialNetworkServiceTest.testGetUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2011-03-04T17:28:00Z" finished-at="2011-03-04T17:28:00Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

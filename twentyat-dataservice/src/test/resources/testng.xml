@@ -1,0 +1,68 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Core TestNG Unit Tests" verbose="1">
+
+	<test name="user">
+	<!-- List of params -->
+	
+		<!-- Parameters of Method testAddTwentyAtUser -->
+		<parameter name="userIdAdd" value="twUser003"/>
+		<parameter name="tokenAdd" value="dummytoken"/>		
+		<parameter name="firstNameAdd" value="Kalpesh"/>
+		<parameter name="lastNameAdd" value="Bhimani"/>
+		<parameter name="isActiveAdd" value="true"/>  
+		<parameter name="emailAdd" value="kalpesh@techingen.com"/>		
+		
+		<!-- Parameters of Method testGetUser -->
+		<parameter name="userGet" value="twUser001"/>
+		<parameter name="firstNameGet" value="Mayuri"/>
+		<parameter name="lastNameGet" value="Ruparel"/>
+		<parameter name="isActiveGet" value="true"/>
+		<parameter name="emailGet" value="mayuri@gmail.com"/>		 
+		
+		<!-- Parameters of Method testGetTwentyAtUserByID -->
+		<parameter name="twUserGet" value=""/>		
+		<parameter name="twFirstNameGet" value=""/>
+		<parameter name="twLastNameGet" value=""/>
+		<parameter name="twIsActiveGet" value=""/>
+		<parameter name="twEmailGet" value=""/>
+		
+		<!-- Parameters of Method testGetTwentyAtUserByEmail -->
+		<parameter name="twUserGetByemail" value=""/>		
+		<parameter name="twFirstNameGetByemail" value=""/>
+		<parameter name="twLastNameGetByemail" value=""/>
+		<parameter name="twIsActiveGetByemail" value=""/>
+		<parameter name="twEmailGetByemail" value=""/>
+				
+		<!-- Parameters of Method testGetTwentyAtUserByEmail -->
+		<parameter name="userIdGetToken" value=""/>		
+		<parameter name="tokenGetToken" value=""/>
+				
+		<!-- Parameters of Method testGetGroup -->
+		<parameter name="groupIdGetGroup" value=""/>		
+		
+		<!-- Parameters of Method testSaveGroup -->
+		<parameter name="groupName_SaveGroup" value=""/>	
+		
+		<!-- Parameters of Method testUpdateGroup -->
+		<parameter name="groupName_updateGroup" value=""/>
+		<parameter name="groupId_updateGroup" value=""/>
+		
+		<!-- Parameters of Method testGetGroupByUserId -->
+		<parameter name="userId_GetGroupByUserId" value=""/>
+				
+		<!-- Parameters of Method  testGetUser of SocialNetworkServiceTest -->
+		<parameter name="token_GetUserByToken" value=""/>
+		<parameter name="firstName_GetUserByToken" value=""/>
+		<parameter name="lastName_GetUserByToken" value=""/>
+		<parameter name="isActive_GetUserByToken" value=""/>
+		<parameter name="email_GetUserByToken" value=""/>
+		
+		
+		
+		<classes>
+			<class name="com.twentyat.service.impl.TwentyAtServiceTest" /> 
+			<class name="com.twentyat.service.impl.SocialNetworkServiceTest" />
+		</classes>
+	</test>
+
+</suite>

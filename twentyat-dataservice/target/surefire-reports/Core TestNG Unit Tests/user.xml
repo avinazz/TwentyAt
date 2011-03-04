@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="Cloud" name="com.twentyat.service.impl.SocialNetworkServiceTest" tests="3" failures="0" timestamp="4 Mar 2011 11:58:00 GMT" time="2.671" errors="0">
+  <testcase name="testGetUser" time="0.001" classname="com.twentyat.service.impl.SocialNetworkServiceTest"/>
+  <testcase name="testAddTwentyAtUser" time="0.05" classname="com.twentyat.service.impl.TwentyAtServiceTest"/>
+  <testcase name="testGetUser" time="0.02" classname="com.twentyat.service.impl.TwentyAtServiceTest"/>
+</testsuite>
