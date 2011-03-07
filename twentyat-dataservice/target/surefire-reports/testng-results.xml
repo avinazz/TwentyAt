@@ -1,0 +1,10 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="Core TestNG Unit Tests" duration-ms="1" started-at="2011-03-07T18:55:15Z" finished-at="2011-03-07T18:55:15Z">
+    <groups>
+    </groups>
+    <test name="twentyat-dataservice" duration-ms="1" started-at="2011-03-07T18:55:15Z" finished-at="2011-03-07T18:55:15Z">
+    </test>
+  </suite>
+</testng-results>

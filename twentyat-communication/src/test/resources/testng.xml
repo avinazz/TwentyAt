@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Core TestNG Unit Tests" verbose="1">
+
+
+    <test name="twentyat-dataservice">
+        <classes>
+           
+        </classes>
+    </test>
+
+    
+
+</suite>

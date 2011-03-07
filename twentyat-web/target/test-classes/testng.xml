@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Core TestNG Unit Tests" verbose="1">
+
+	<test name="user">
+		
+		<classes>
+			
+		</classes>
+	</test>
+
+</suite>

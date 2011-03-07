@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <!--<address id="-1"
+              address="725 Florida Street #5"
+              city="San Francisco"
+              country="US"
+              postal_code="94110"
+              province="CA"
+              version="1"
+            />
+
+    <role id="-1" version="0" name="ROLE_ADMIN" description="Administrator role (can edit Users)"/>
+    <role id="-2" version="0" name="ROLE_USER" description="Default role for all Users"/>
+    <role id="-3" version="0" name="ROLE_TEST" description="Test role for Test Users"/>
+    <role id="4" version="0" name="ANOTHER_ROLE" description="Another Test Role"/>
+
+    <app_user id="-1"
+              username="mickknutson"
+              password="1234"
+              confirmPassword="1234"
+              first_name="Mick"
+              last_name="Knutson"
+              address_fk="-1"
+              email="mickknutson@nomail.com"
+              phone_number="(415) 555-1212"
+              website="http://baselogic.com"
+              password_hint="hint-hint"
+              version="1"
+            />
+
+    <user_role user_id="-1" role_id="-2"/>
+    <user_role user_id="-2" role_id="-1"/>-->
+
+</dataset>

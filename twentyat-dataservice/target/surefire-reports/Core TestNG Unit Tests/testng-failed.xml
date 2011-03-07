@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Core TestNG Unit Tests]" parallel="false">
+  <parameter name="group_name" value="This is my group"/>
+  <parameter name="userid_get" value="9839bda3-4755-42e6-a61f-c7c8fda420fb"/>
+  <test name="user(failed)" preserve-order="false">
+    <parameter name="group_name" value="This is my group"/>
+    <parameter name="userid_get" value="9839bda3-4755-42e6-a61f-c7c8fda420fb"/>
+    <classes>
+      <class name="com.twentyat.service.impl.TwentyAtServiceTest">
+        <methods>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="testGetGroup"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

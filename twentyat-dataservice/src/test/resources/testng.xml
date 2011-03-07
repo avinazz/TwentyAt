@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Core TestNG Unit Tests" verbose="1">
+
+	<test name="user">
+		<parameter name="userid_get" value="9839bda3-4755-42e6-a61f-c7c8fda420fb" />
+		<parameter name="group_name" value="This is my group"></parameter>
+		
+		<classes>
+			<class name="com.twentyat.service.impl.TwentyAtServiceTest" />
+		</classes>
+	</test>
+
+</suite>
