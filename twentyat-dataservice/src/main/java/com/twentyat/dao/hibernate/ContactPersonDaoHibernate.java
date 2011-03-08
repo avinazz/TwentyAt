@@ -3,9 +3,7 @@ package com.twentyat.dao.hibernate;
 import java.util.List;
 
 import com.twentyat.dao.ContactPersonDao;
-import com.twentyat.dao.UserDao;
 import com.twentyat.model.ContactPerson;
-import com.twentyat.model.TwentyAtUser;
 
 public class ContactPersonDaoHibernate extends GenericDaoHibernate<ContactPerson, String> implements ContactPersonDao {
 
@@ -13,7 +11,7 @@ public class ContactPersonDaoHibernate extends GenericDaoHibernate<ContactPerson
 		super(ContactPerson.class);		
 	}
 
-	public ContactPerson getContactPersonByFacebookId(String facebookId) {
+	public ContactPerson getContactPersonByFacebookId(Long facebookId) {
 		List<ContactPerson> contactPersons = getHibernateTemplate().find("from ContactPerson WHERE facebookId=?", facebookId);
 		
 		if(null != contactPersons && contactPersons.size()>0)

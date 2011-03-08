@@ -1,6 +1,7 @@
 package com.twentyat.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -9,14 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
-import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 
 import com.twentyat.model.FriendsMapping;
-import com.twentyat.model.Group;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatGroup;
+import com.twentyat.model.TwentyatUser;
 
 import com.twentyat.service.TwentyAtService;
 
@@ -73,38 +73,38 @@ public class TwentyAtServiceTest extends AbstractTransactionalTestNGSpringContex
 	@Test(groups = { "Group GET" })
 	@Parameters({ "userid_get" })
 	public void testGetGroup(String userId) throws Exception{
-		List<Group> groups = twentyAtService.getGroupByUserId(userId);
+		List<TwentyatGroup> groups = twentyAtService.getGroupByUserId(userId);
 		
 		System.out.println("======================");
 		System.out.println("==========="+groups.size());
 		System.out.println("======================");
-		for(Group group : groups)
+		for(TwentyatGroup group : groups)
 		{
-			List<FriendsMapping> mappings = group.getMapping();
+			Set<FriendsMapping> mappings = group.getFriendsMappings();
 			System.out.println("======================");
 			System.out.println("=========== Users : "+mappings.size());
 			System.out.println("======================");
 			for(FriendsMapping mapping : mappings)
 			{
 				System.out.println("====================================");
-				System.out.println("===> Friest Name : "+mapping.getFriend().getFirstName());				
+				System.out.println("===> Friest Name : "+mapping.getTwentyatUser().getFirstName());				
 				System.out.println("====================================");
 			}
 		}
 	}
 	
-	//@Test(groups = { "Group GET" })
+	//@Test(groups = { "TwentyatGroup GET" })
 	@Parameters({ "group_name", "userid_get" })
 	public void testCreateGroup(String groupName, String userId)
 	{
-		Group groupSave = new Group();
+		TwentyatGroup groupSave = new TwentyatGroup();
 		groupSave.setGroupName(groupName);
 		
 		try
 		{
-			Group group = twentyAtService.saveGroup(groupSave);
+			TwentyatGroup group = twentyAtService.saveGroup(groupSave);
 			System.out.println("=========================");
-			System.out.println("===> Returned ID : "+group.getGroupId());
+			System.out.println("===> Returned ID : "+group.getTwentyatGroupId());
 			System.out.println("=========================");
 		}
 		catch(Exception e)
@@ -113,19 +113,20 @@ public class TwentyAtServiceTest extends AbstractTransactionalTestNGSpringContex
 		}
 	}
 	
-	//@Test(groups = { "Group Update" })
+	//@Test(groups = { "TwentyatGroup Update" })
 	@Parameters({ "group_name", "userid_get" })
 	public void testUpdateGroup(String groupName, String userId)
 	{
-		Group groupSave = new Group();
-		groupSave.setGroupName(groupName);
-		groupSave.setTwentyAtUserId(userId);
 		
 		try
 		{
-			Group group = twentyAtService.saveGroup(groupSave);
+			TwentyatUser user = twentyAtService.getUser(userId);
+			TwentyatGroup groupSave = new TwentyatGroup();
+			groupSave.setGroupName(groupName);
+			groupSave.setTwentyatUser(user);
+			TwentyatGroup group = twentyAtService.saveGroup(groupSave);
 			System.out.println("=========================");
-			System.out.println("===> Returned ID : "+group.getGroupId());
+			System.out.println("===> Returned ID : "+group.getTwentyatGroupId());
 			System.out.println("=========================");
 		}
 		catch(Exception e)

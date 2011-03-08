@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,8 @@ import com.googlecode.janrain4j.json.JSONException;
 import com.googlecode.janrain4j.json.JSONObject;
 import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.model.ContactPerson;
-import com.twentyat.model.Group;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatGroup;
+import com.twentyat.model.TwentyatUser;
 import com.twentyat.service.SocialNetworkService;
 import com.twentyat.service.TwentyAtService;
 
@@ -48,27 +50,22 @@ public class TwentyAtController {
 	public @ResponseBody List<Object> register(@RequestBody Object obj) {
 	  Status status = new Status();		
       List<Object> returnObj = new ArrayList<Object>();
-      
-      try {
+           try {
     	  JSONObject json = new JSONObject(obj.toString());
     	  String token=json.getString("token");
     	  String email=json.getString("email");
-    	  String uuid=json.getString("uuid");
-	      
+    	  String uuid=json.getString("uuid");	      
     	  logger.info("TOKEN : "+token);
     	  logger.info("EMAIL : "+email);
-    	  logger.info("UUID : "+uuid);
-    	  
-    	  if(null != token && null != email)
-    	  {
-    		  TwentyAtUser user = twentyAtService.addTwentyAtUser(email, token, uuid);
+    	  logger.info("UUID : "+uuid);    	  
+    	  if(null != token && null != email) {
+    		  TwentyatUser user = twentyAtService.addTwentyAtUser(email, token, uuid);
     		  returnObj.add(user);
     		  status.setCode(0);
     		  status.setMessage("ok");
     		  returnObj.add(status);
     	  }
-    	  else
-    	  {
+    	  else {
     		  logger.error("TOKEN and/or EMAIL is null or empty");
     		  status.setCode(2);
     		  status.setMessage("TOKEN and/or EMAIL is null or empty");
@@ -102,7 +99,7 @@ public class TwentyAtController {
 		Map<String, Object> returnObj = new HashMap<String, Object>();
 		if (null != token && !"".equals(token)) {
 			String email = null;
-			TwentyAtUser user = null;
+			TwentyatUser user = null;
 			logger.debug("Login Twenty user called");
 
 			// Checking passed token is valid or not
@@ -126,7 +123,7 @@ public class TwentyAtController {
 			// twentyat app or not
 			try {
 				email = user.getEmail();
-				TwentyAtUser dbUser = twentyAtService
+				TwentyatUser dbUser = twentyAtService
 						.getTwentyAtUserByEMail(email);
 				if (null != dbUser) {
 					status.setCode(0);
@@ -156,7 +153,7 @@ public class TwentyAtController {
 			returnObj.put("status", status);
 		}
 		return returnObj;
-	}
+	}// end of login
 
 	/**
 	 * Method to create new group Access this method by
@@ -176,11 +173,13 @@ public class TwentyAtController {
 		Status status = new Status();
 		if (null != userId && !"".equals(userId) && null != groupname
 				&& !"".equals(groupname)) {
-			Group group = new Group();
-			group.setGroupName(groupname);
-			group.setTwentyAtUserId(userId);
+			
 			try {
-				List<Group> groupUser = twentyAtService
+				TwentyatUser user = twentyAtService.getUser(userId);
+				TwentyatGroup group = new TwentyatGroup();
+				group.setGroupName(groupname);
+				group.setTwentyatUser(user);
+				List<TwentyatGroup> groupUser = twentyAtService
 						.getGroupByUserId(userId);
 				if (groupUser == null || groupUser.size() == 0) {
 					group = twentyAtService.saveGroup(group);
@@ -242,18 +241,18 @@ public class TwentyAtController {
 		if (null != userId && !"".equals(userId) && null != ids
 				&& !"".equals(ids)) {
 			try {
-				TwentyAtUser user = twentyAtService.getTwentyAtUserByID(userId);
+				TwentyatUser user = twentyAtService.getTwentyAtUserByID(userId);
 				if (null != user) {
 					String[] idArray = ids.split(":");
 					for (String id : idArray) {
 						try {
-							Integer idInt = new Integer(id);
+							Long idInt = new Long(id);
 							logger.info(id
 									+ " : is facebookId, looking in contact table for user information");
 							ContactPerson contactPerson = twentyAtService
-									.getContactPersonByFacebookId(id);
+									.getContactPersonByFacebookId(idInt);
 
-							TwentyAtUser twentyAtUser = new TwentyAtUser();
+							TwentyatUser twentyAtUser = new TwentyatUser();
 
 							// stwentyAtUser.setAddress(address);
 						} catch (Exception e) {
@@ -275,15 +274,54 @@ public class TwentyAtController {
 		return returnObj;
 	}
 
-	@RequestMapping(value = "/getmail", method = RequestMethod.POST, headers = "Content-Type:application/json")
-	public void getMail(@RequestBody Object o) {
-		JSONObject object = null;
-		try {
-			object = new JSONObject(o.toString());
-			object.get("");
-		} catch (JSONException e) {
-			e.printStackTrace();
+	@RequestMapping(value = "/getmail", method = RequestMethod.POST, headers = "content-type=application/*")
+	public void getMail(@RequestBody MultiValueMap<String, Object> param) {
+		
+		String str = "";
+		for(Entry<String, List<Object>> entry : param.entrySet())
+		{
+			System.out.println("=====================");
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+			if(entry.getKey().equals("subject")){
+				str = entry.getValue().toString();
+			}
+			System.out.println("=================================================================================================================");
 		}
-		System.out.println(object);
+		
+		System.out.println("______The Subject is : " + str);
+		String senderToken = getSenderToken(str);
+		System.out.println("______The SenderInfo is : " + senderToken);
+		System.out.println("______The SenderID is : " + getSenderID(senderToken));
+		System.out.println("______The SubjectThread is : " + getSenderThread(senderToken));
+		
 	}
+	
+	private static String getSenderToken(String str){
+		  if(str.contains("<")){
+			  String[] getid = str.split("<");
+		      String[] getid2 = getid[getid.length-1].split(">");
+		      return getid2[0];
+		  }else{
+			  return "none";
+		  }
+	  }
+	
+	private static String getSenderID(String senderToken){
+		  if(senderToken.contains("#")){
+			  String[] getid = senderToken.split("#");
+			  String[] getid2 = getid[0].split(":");
+		      return getid2[1];
+		  }else{
+			  return "none";
+		  }
+	  }
+	private static String getSenderThread(String senderToken){
+		  if(senderToken.contains("#")){
+			  String[] getid = senderToken.split("#");
+		      return getid[1];
+		  }else{
+			  return "none";
+		  }
+	  }
 }

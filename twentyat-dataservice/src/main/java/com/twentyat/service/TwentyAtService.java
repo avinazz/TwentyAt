@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.twentyat.exception.TwentyAtProviderException;
 import com.twentyat.model.ContactPerson;
-import com.twentyat.model.Group;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatGroup;
+import com.twentyat.model.TwentyatUser;
 
 /**
  * This class is used to get connect to database and get result
@@ -18,54 +18,54 @@ public interface TwentyAtService {
 	/**
 	 * Method used to get Twentyat User information
 	 * 
-	 * @param TwentyAtUser user
+	 * @param TwentyatUser user
 	 *
-	 * @return TwentyAtUser
+	 * @return TwentyatUser
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser addTwentyAtUser(String email,String token,String uuid) throws TwentyAtProviderException;
+	public TwentyatUser addTwentyAtUser(String email,String token,String uuid) throws TwentyAtProviderException;
 	
 	/**
 	 * Method used to get User by Id
 	 * 
 	 * @param String id
-	 * @return TwentyAtUser
+	 * @return TwentyatUser
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getTwentyAtUserByID(String id) throws TwentyAtProviderException;
+	public TwentyatUser getTwentyAtUserByID(String id) throws TwentyAtProviderException;
 	
 	/**
 	 * Method used to get User by Email
 	 * 
 	 * @param String email
-	 * @return TwentyAtUser
+	 * @return TwentyatUser
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getTwentyAtUserByEMail(String email) throws TwentyAtProviderException;
+	public TwentyatUser getTwentyAtUserByEMail(String email) throws TwentyAtProviderException;
 	
 	/**
 	 * 
 	 * @param id
-	 * @return TwentyAtUser
+	 * @return TwentyatUser
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getUser(String id) throws TwentyAtProviderException;
+	public TwentyatUser getUser(String id) throws TwentyAtProviderException;
 	
 	/**
 	 * This method is used to get User information based on facebookId
 	 * 
 	 * @param facebookId
-	 * @return TwentyAtUser
+	 * @return TwentyatUser
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getUserByFacebookId(String facebookId) throws TwentyAtProviderException;
+	public TwentyatUser getUserByFacebookId(Long facebookId) throws TwentyAtProviderException;
 	/**
 	 * 
 	 * @param userId
-	 * @return List of Group
+	 * @return List of TwentyatGroup
 	 * @throws TwentyAtProviderException
 	 */
-	public List<Group> getGroupByUserId(String userId) throws TwentyAtProviderException;
+	public List<TwentyatGroup> getGroupByUserId(String userId) throws TwentyAtProviderException;
 	
 	/**
 	 * 
@@ -73,23 +73,23 @@ public interface TwentyAtService {
 	 * @return
 	 * @throws TwentyAtProviderException
 	 */
-	public Group getGroup(int id) throws TwentyAtProviderException;
+	public TwentyatGroup getGroup(int id) throws TwentyAtProviderException;
 	
 	/**
 	 * 
-	 * @param group
+	 * @param TwentyatGroup
 	 * @return
 	 * @throws TwentyAtProviderException
 	 */
-	public Group saveGroup(Group group) throws TwentyAtProviderException;
+	public TwentyatGroup saveGroup(TwentyatGroup group) throws TwentyAtProviderException;
 	
 	/**
 	 * 
-	 * @param group
+	 * @param TwentyatGroup
 	 * @return
 	 * @throws TwentyAtProviderException
 	 */
-	public Group updateGroup(Group group) throws TwentyAtProviderException;
+	public TwentyatGroup updateGroup(TwentyatGroup group) throws TwentyAtProviderException;
 	
 	/**
 	 * 
@@ -106,5 +106,5 @@ public interface TwentyAtService {
 	 * @return ContactPerson
 	 * @throws TwentyAtProviderException
 	 */
-	public ContactPerson getContactPersonByFacebookId(String facebookId) throws TwentyAtProviderException;
+	public ContactPerson getContactPersonByFacebookId(Long facebookId) throws TwentyAtProviderException;
 }

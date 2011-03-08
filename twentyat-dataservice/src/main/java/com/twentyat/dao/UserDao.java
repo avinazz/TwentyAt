@@ -1,7 +1,7 @@
 package com.twentyat.dao;
 
 import com.twentyat.exception.TwentyAtProviderException;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatUser;
 
 /**
  * User DAO (Data Access Object) with common methods to CRUD POJOs.
@@ -18,7 +18,7 @@ public interface UserDao {
 	 * @return User
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getTwentyAtUserByEmail(String email) throws TwentyAtProviderException;
+	public TwentyatUser getTwentyAtUserByEmail(String email) throws TwentyAtProviderException;
 	
 	/**
 	 * Method to get User by Id
@@ -27,7 +27,7 @@ public interface UserDao {
 	 * @return User
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getUser(String id) throws TwentyAtProviderException;
+	public TwentyatUser getUser(String id) throws TwentyAtProviderException;
 	
 	/**
 	 * This method is used to get User infomration based on facebookid
@@ -36,7 +36,7 @@ public interface UserDao {
 	 * @return User
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser getUserByFacebookId(String facebookId) throws TwentyAtProviderException;
+	public TwentyatUser getUserByFacebookId(Long facebookId) throws TwentyAtProviderException;
 	/**
 	 * Method to save new User 
 	 * 
@@ -44,7 +44,7 @@ public interface UserDao {
 	 * @return User
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser saveUser(TwentyAtUser user) throws TwentyAtProviderException;
+	public TwentyatUser saveUser(TwentyatUser user) throws TwentyAtProviderException;
 	
 	/**
 	 * Method to update existing User
@@ -53,7 +53,7 @@ public interface UserDao {
 	 * @return User
 	 * @throws TwentyAtProviderException
 	 */
-	public TwentyAtUser updateUser(TwentyAtUser user) throws TwentyAtProviderException;
+	public TwentyatUser updateUser(TwentyatUser user) throws TwentyAtProviderException;
 	
 	/**
 	 * Method to delete User
@@ -61,5 +61,5 @@ public interface UserDao {
 	 * @param user
 	 * @throws TwentyAtProviderException
 	 */
-	public void deleteUser(TwentyAtUser user) throws TwentyAtProviderException;
+	public void deleteUser(TwentyatUser user) throws TwentyAtProviderException;
 }

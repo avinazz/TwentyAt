@@ -1,22 +1,15 @@
 package com.twentyat.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.log4testng.Logger;
 
 import com.googlecode.janrain4j.api.engage.EngageFailureException;
 import com.googlecode.janrain4j.api.engage.EngageService;
 import com.googlecode.janrain4j.api.engage.ErrorResponeException;
-import com.googlecode.janrain4j.api.engage.response.ContactsResponse;
 import com.googlecode.janrain4j.api.engage.response.UserDataResponse;
-import com.googlecode.janrain4j.api.engage.response.poco.Contact;
-import com.googlecode.janrain4j.api.engage.response.profile.Address;
 import com.googlecode.janrain4j.api.engage.response.profile.Profile;
 import com.twentyat.exception.TwentyAtProviderException;
-import com.twentyat.model.ContactPerson;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatUser;
 import com.twentyat.service.SocialNetworkService;
 
 /**
@@ -32,26 +25,26 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
 	private EngageService engageService;
 	public void setEngageService(EngageService engageService) {
 		this.engageService = engageService;
-	}
+	} 
 	
 	/*
 	 * (non-Javadoc)
 	 * @see com.twentyat.service.FacebookService#getUser(java.lang.String)
 	 */
-	public TwentyAtUser getUser(String token) throws TwentyAtProviderException 
+	public TwentyatUser getUser(String token) throws TwentyAtProviderException 
 	{
 		
 		try {
 			UserDataResponse response = engageService.authInfo(token,true);
 			Profile profile = response.getProfile();
 			
-			TwentyAtUser user = new TwentyAtUser();
+			TwentyatUser user = new TwentyatUser();
 			
 			String profileUrl = profile.getIdentifier();
 			String[] profileSplit = profileUrl.split("=");
 		
 			String facebookId = profileSplit[1];
-			user.setFacebookId(facebookId);
+			user.setFacebookId(new Long(facebookId));
 			user.setFirstName(profile.getName().getGivenName());
 			user.setMiddleName(profile.getName().getMiddleName());
 			user.setLastName(profile.getName().getFamilyName());
@@ -60,7 +53,11 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
 			user.setPhoto(profile.getPhoto());
 			user.setCountry(profile.getAddress().getCountry());
 			user.setLocality(profile.getAddress().getLocality());
-			user.setPostalCode(profile.getAddress().getPostalCode());
+			String postalCodeStr = profile.getAddress().getPostalCode();
+			if(null != postalCodeStr){
+				user.setPostalCode(new Integer(postalCodeStr));
+			}
+			
 			user.setRegion(profile.getAddress().getRegion());
 			user.setStreetAddress(profile.getAddress().getStreetAddress());
 			
@@ -86,13 +83,13 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
 		}		
 	}
 
-	public TwentyAtUser getUserByFacebookId(String facebookId)	throws TwentyAtProviderException {
+	public TwentyatUser getUserByFacebookId(Long facebookId)	throws TwentyAtProviderException {
 		
 		try {
-			UserDataResponse response = engageService.getUserData(facebookId);
+			UserDataResponse response = engageService.getUserData(facebookId+"");
 			Profile profile = response.getProfile();
 			
-			Address address  = profile.getAddress();
+//			Address address  = profile.getAddress();
 //			com.twentyat.model.Address add = new com.twentyat.model.Address();
 //			add.setCountry(address.getCountry());
 //			add.setLocality(address.getLocality());
@@ -100,7 +97,7 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
 //			add.setRegion(address.getRegion());
 //			add.setStreetAddress(address.getStreetAddress());
 						
-			TwentyAtUser user = new TwentyAtUser();
+			TwentyatUser user = new TwentyatUser();
 			
 			//user.setAddress(add);
 			user.setEmail(profile.getEmail());

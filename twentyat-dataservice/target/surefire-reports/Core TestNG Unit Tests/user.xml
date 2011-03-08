@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite hostname="Cloud" name="com.twentyat.service.impl.TwentyAtServiceTest" tests="1" failures="0" timestamp="7 Mar 2011 13:25:15 GMT" time="3.031" errors="0">
-  <testcase name="testGetGroup" time="0.21" classname="com.twentyat.service.impl.TwentyAtServiceTest"/>
+<testsuite hostname="cloud03" name="com.twentyat.service.impl.TwentyAtServiceTest" tests="1" failures="0" timestamp="8 Mar 2011 12:39:49 GMT" time="2.68" errors="0">
+  <testcase name="testGetGroup" time="0.171" classname="com.twentyat.service.impl.TwentyAtServiceTest"/>
 </testsuite>

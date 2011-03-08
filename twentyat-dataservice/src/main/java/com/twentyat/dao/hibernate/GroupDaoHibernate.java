@@ -1,24 +1,22 @@
 package com.twentyat.dao.hibernate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.twentyat.dao.GroupDao;
 import com.twentyat.exception.TwentyAtProviderException;
-import com.twentyat.model.Group;
+import com.twentyat.model.TwentyatGroup;
 
-public class GroupDaoHibernate extends  GenericDaoHibernate<Group, Integer>  implements GroupDao {
+public class GroupDaoHibernate extends  GenericDaoHibernate<TwentyatGroup, Integer>  implements GroupDao {
 
 	
 	public GroupDaoHibernate() {
-		super(Group.class);
+		super(TwentyatGroup.class);
 	}
 
-	
-	public List<Group> getGroupByUserId(String userId)  throws TwentyAtProviderException {
-		List<Group> groupList = getHibernateTemplate().find("from Group where twentyAtUserId=?", userId);
+	public List<TwentyatGroup> getGroupByUserId(String userId)  throws TwentyAtProviderException {
+		List<TwentyatGroup> groupList = getHibernateTemplate().find("from TwentyatGroup where twentyatUser.twentyatUserId=?", userId);
 //		List<TwentyAtUser> userList = getHibernateTemplate().find("from User");
-//		for(Group group : groupList)
+//		for(TwentyatGroup group : groupList)
 //		{		
 //			List<TwentyAtUser> users = new ArrayList<User>();
 //			for(TwentyAtUser user : userList)
@@ -44,7 +42,7 @@ public class GroupDaoHibernate extends  GenericDaoHibernate<Group, Integer>  imp
 	}
 
 	
-	public Group saveGroup(Group group) throws TwentyAtProviderException {
+	public TwentyatGroup saveGroup(TwentyatGroup group) throws TwentyAtProviderException {
 		return super.save(group);
 	}
 
@@ -54,12 +52,12 @@ public class GroupDaoHibernate extends  GenericDaoHibernate<Group, Integer>  imp
 	}
 
 	
-	public Group updateGroup(Group group) throws TwentyAtProviderException {
+	public TwentyatGroup updateGroup(TwentyatGroup group) throws TwentyAtProviderException {
 		return super.save(group);
 	}
 
 	
-	public Group getGroup(int groupId) throws TwentyAtProviderException {
+	public TwentyatGroup getGroup(int groupId) throws TwentyAtProviderException {
 		return super.get(groupId);
 	}
 

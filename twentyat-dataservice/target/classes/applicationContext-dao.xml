@@ -22,7 +22,7 @@
 				hibernate.query.substitutions=true 'Y', false 'N'
 				hibernate.cache.use_second_level_cache=false
 				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
-				hibernate.show_sql = true       
+				hibernate.show_sql = true   
             </value>
 			<!-- Turn batching off for better error messages under PostgreSQL -->
 			<!-- hibernate.jdbc.batch_size=0 -->

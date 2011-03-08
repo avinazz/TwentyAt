@@ -9,7 +9,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.twentyat.dao.UserDao;
 import com.twentyat.exception.TwentyAtException;
 import com.twentyat.exception.TwentyAtProviderException;
-import com.twentyat.model.TwentyAtUser;
+import com.twentyat.model.TwentyatUser;
 
 /**
  * Hibernate implementation of UserDao interface.
@@ -17,10 +17,10 @@ import com.twentyat.model.TwentyAtUser;
  * @author Bipin Sutariya
  *
  */
-public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String> implements UserDao {
+public class UserDaoHibernate extends  GenericDaoHibernate<TwentyatUser, String> implements UserDao {
 
 	public UserDaoHibernate() {
-		super(TwentyAtUser.class);		
+		super(TwentyatUser.class);		
 	}
 
 	/*
@@ -28,10 +28,10 @@ public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String>
 	 * @see com.twentyat.dao.UserDao#getTwentyAtUserByEmail(java.lang.String)
 	 */
 	
-	public TwentyAtUser getTwentyAtUserByEmail(String email) throws TwentyAtProviderException{
-		String query = "from User where email=?";
+	public TwentyatUser getTwentyAtUserByEmail(String email) throws TwentyAtProviderException{
+		String query = "from TwentyatUser where email=?";
 		
-		List<TwentyAtUser> users = getHibernateTemplate().find(query, email);
+		List<TwentyatUser> users = getHibernateTemplate().find(query, email);
 		
 		if(null != users && users.size()>0)
 		{
@@ -46,7 +46,7 @@ public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String>
 	 * @see com.twentyat.dao.UserDao#getUser(java.lang.String)
 	 */
 	
-	public TwentyAtUser getUser(String id) throws TwentyAtProviderException{
+	public TwentyatUser getUser(String id) throws TwentyAtProviderException{
 		try
 		{
 			return super.get(id);
@@ -62,7 +62,7 @@ public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String>
 	 * @see com.twentyat.dao.UserDao#saveUser(com.twentyat.model.User)
 	 */
 	
-	public TwentyAtUser saveUser(TwentyAtUser user) throws TwentyAtProviderException {
+	public TwentyatUser saveUser(TwentyatUser user) throws TwentyAtProviderException {
 		return super.save(user);
 	}
 
@@ -71,7 +71,7 @@ public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String>
 	 * @see com.twentyat.dao.UserDao#updateUser(com.twentyat.model.User)
 	 */
 	
-	public TwentyAtUser updateUser(TwentyAtUser user) throws TwentyAtProviderException {
+	public TwentyatUser updateUser(TwentyatUser user) throws TwentyAtProviderException {
 		return super.save(user);
 	}
 
@@ -80,14 +80,14 @@ public class UserDaoHibernate extends  GenericDaoHibernate<TwentyAtUser, String>
 	 * @see com.twentyat.dao.UserDao#deleteUser(com.twentyat.model.User)
 	 */
 	
-	public void deleteUser(TwentyAtUser user) throws TwentyAtProviderException {
-		super.remove(user.getTwentyAtUserId());
+	public void deleteUser(TwentyatUser user) throws TwentyAtProviderException {
+		super.remove(user.getTwentyatUserId());
 	}
 
-	public TwentyAtUser getUserByFacebookId(String facebookId)
+	public TwentyatUser getUserByFacebookId(Long facebookId)
 			throws TwentyAtProviderException {
 	
-		List<TwentyAtUser> users = getHibernateTemplate().find("from User where facebookId=?", facebookId);
+		List<TwentyatUser> users = getHibernateTemplate().find("from TwentyatUser where facebookId=?", facebookId);
 		
 		if(users!=null && users.size()>0)
 		{
